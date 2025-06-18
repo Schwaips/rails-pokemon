@@ -1,0 +1,32 @@
+
+<h1>Pokédex</h1>
+<%= link_to "Trainers", "#" %>
+<%= link_to "Random pokemon", "#" %>
+
+  <%= form_with(url: pokemons_path, method: :get, class:"d-flex justify-content-start align-items-center gap-3 my-3" )  do |f|%>
+    <%= f.text_field :query, value: params[:query], class:"form-control", data: {
+      turbo_frame: "pokemons"
+    } %>
+    <%= f.submit "Rechercher", class:"btn btn-small btn-primary" %>
+  <% end %>
+
+  <%= turbo_frame_tag "pokemons" do %>
+    <% if @pokemons.empty? %>
+      <p>Aucun résultat</p>
+    <% end %>
+
+    <div class="d-flex flex-wrap justify-content-between gap-3">
+      <% @pokemons.each do |pokemon| %>
+        <%= link_to pokemon_path(pokemon) do %>
+          <div class="">
+            <div class="card" style="width: 18rem;">
+              <%= cl_image_tag pokemon.photo.key %>
+              <div class="card-body">
+                <p class="card-text"><%= pokemon.name %></p>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>
