@@ -17,7 +17,7 @@
 
     <div class="d-flex flex-wrap justify-content-between gap-3">
       <% @pokemons.each do |pokemon| %>
-        <%= link_to pokemon_path(pokemon) do %>
+        <%= link_to pokemon_path(pokemon), data: { turbo: false } do %>
           <div class="">
             <div class="card" style="width: 18rem;">
               <%= cl_image_tag pokemon.photo.key %>
