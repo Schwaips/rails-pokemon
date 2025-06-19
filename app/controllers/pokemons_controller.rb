@@ -14,5 +14,8 @@ class PokemonsController < ApplicationController
   end
 
   def show
+    @pokemon = Pokemon.find(params[:id])
+    @trainers = Trainer.all
+    @pokeball = Pokeball.new
   end
 end

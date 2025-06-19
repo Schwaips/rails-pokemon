@@ -12,10 +12,13 @@
 @import "pages/index";
 
 
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap');
 body {
   background-color: #031E48;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6, p, label {
   color: $white;
+  font-family: "Pixelify Sans", sans-serif;
+  font-weight: 400;
 }
